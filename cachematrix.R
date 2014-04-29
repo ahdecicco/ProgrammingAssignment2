@@ -1,6 +1,6 @@
 ##**************************************************************************
-## Functions in R that compute the inverse for a specified matrix input and cache the
-## result so that further calls use the cache instead of recomputing.
+## Functions that compute the inverse for a specified matrix input and cache the
+## result so that further calls use the cache instead of recalculating.
 ##**************************************************************************
 
 ## This function creates a matrix that has a cachable inverse,
@@ -8,8 +8,7 @@
 
 makeCacheMatrix <- function(x = matrix()) 
 {
-    m <- NULL					# initialize m to NULL
-	
+    m <- NULL					# initialize m	
 	## Set the matrix and clear the cache.
     set <- function(y) 
 	{
@@ -23,7 +22,7 @@ makeCacheMatrix <- function(x = matrix())
 		x
 	}
 	
-	## Save the computed matrix inverse.
+	## Save the calculated matrix inverse value.
 	setInverse <- function(z)	# set the inverse of matrix x to m
 	{
 		m <<- z					# overwrite the inverse data 
@@ -35,7 +34,7 @@ makeCacheMatrix <- function(x = matrix())
 		m
 	}
     
-	## Return list of functions.
+	## Return the list of functions.
     list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
 
 }
